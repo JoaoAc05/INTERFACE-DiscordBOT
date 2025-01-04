@@ -11,35 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const commandListModal = document.getElementById("command-list-modal");
     const closeModalBtn = document.querySelector(".close-btn");
 
-    // function showPopup(message, type = "") {
-    //     const popupMessage = document.getElementById("popup-message");
-    //     const popupText = document.getElementById("popup-text");
-    //     const popupImage = document.getElementById("img-popup");
-
-    //     popupMessage.className = `popup-message ${type}`; // Adiciona a classe (erro ou sucesso)
-    //     popupText.textContent = message;
-    //     popupMessage.style.display = "flex";
-    //     popupMessage.style.opacity = "1";
-    //     if(type == "alert") {
-    //         popupImage.src = "../Images/Yellow Alert.png" 
-    //     } else if(type == "error") {
-    //         popupImage.src = "../Images/Red Alert.png"
-    //     } else if(type == "success") {
-    //         popupImage.src = "../Images/Green Alert.png"
-    //     }
-
-    //     setTimeout(() => {
-    //         popupMessage.style.opacity = "0";
-    //         setTimeout(() => (popupMessage.style.display = "none"), 300);
-    //     }, 3000);
-    // }
-
-     // Evento de clique no botão de pesquisa
+    // Evento de clique no botão de pesquisa
     searchBtn.addEventListener("click", () => {
         fetchCommands()
         
     });
-
     searchInput.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             fetchCommands();
@@ -54,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }   
 
-        //https://painel-comandos.vercel.app/       URL VERCEL
-        //http://localhost:3000/                    LOCAL
+                //URL VERCEL                         +                     NOME PREENCHIDO NO INPUT
         fetch(`https://painel-comandos.vercel.app/comandos/getName/?name=${encodeURIComponent(busca)}`)
             .then(response => {
                 if (!response.ok) {

@@ -1,18 +1,24 @@
 :root{
+    /*CORES TEMA*/
     --color-principal: #1A202C;
     --color-secundaria: #1F2937;
     --color-terciaria: #29323f;
     --color-quaternaria: #4b5e83;
+
+    /*CORES POPUP*/
     --color-alert: #ffff00;
     --color-error: #ff0000;
     --color-sucess: #118845;
     --color-popup: #2c3258;
+
+    /*CORES BOTÕES*/
     --color-adicionar: #7FC56B;
     --color-adicionar-hover: #53a53d;
     --color-alterar: #3B82F6;
     --color-alterar-hover: #1755db; 
     --color-deletar: #d62d2d;
     --color-deletar-hover: #9e0707;
+
     --color-font: #fff;
 }
 

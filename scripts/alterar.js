@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const commandListModal = document.getElementById("command-list-modal");
     const closeModalBtn = document.querySelector(".close-btn");
 
-    const teste = document.getElementById("teste");
-
+    const qtdComands = document.getElementById("qtd-comands");
 
     searchBtn.addEventListener("click", () => {
         fetchCommands()
@@ -38,8 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
-        //https://painel-comandos.vercel.app/       URL VERCEL
-        //http://localhost:3000/                    LOCAL
+        //     URL VERCEL (ROTA GetName)                +                  NOME PREENCHIDO NO INPUT
         fetch(`https://painel-comandos.vercel.app/comandos/getName/?name=${encodeURIComponent(busca)}`)
             .then(response => {
                 if (!response.ok) {
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
                 
-                teste.innerHTML += `Quantidade de comandos encontrados: ${data.comandos.length}`
+                qtdComands.innerHTML += `Quantidade de comandos encontrados: ${data.comandos.length}`
 
                 // Adiciona os comandos encontrados ao select
                 data.comandos.forEach(comando => {
@@ -98,15 +96,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Evento de mudança na seleção do select
     searchResults.addEventListener("change", (event) => {
+        // Ao selecionar um comando, o seguinte código ira ser executado
         commandForm.style.display = "block"
         const selectedId = event.target.value;
         const selectedName = event.target.options[event.target.selectedIndex].textContent;
         const selectedDescription = event.target.options[event.target.selectedIndex].descriptionContent;
         const selectedExecute = event.target.options[event.target.selectedIndex].executeContent;
-        const selectedExecute2 = event.target.options[event.target.selectedIndex].execute2Content
-        const selectedExecute3 = event.target.options[event.target.selectedIndex].execute3Content
-        commandForm.reset();
-        if (selectedId) {
+        const selectedExecute2 = event.target.options[event.target.selectedIndex].execute2Content;
+        const selectedExecute3 = event.target.options[event.target.selectedIndex].execute3Content;
+
+        commandForm.reset(); // Limpar o forms
+
+        if (selectedId) { // Preencher os campos de acordo com o comando selecionado
             idInput.value = selectedId;
             nameInput.value = selectedName;
             descriptionInput.value = selectedDescription;
@@ -120,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
-
+teste
     // Funções para abrir e fechar o modal
     function openModal() {
         commandListModal.classList.add("active");
@@ -131,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         commandListModal.classList.remove("active");
         modalBackdrop.classList.remove("active");
         searchResults.innerHTML = ""; // Limpa o select para futuras pesquisas
-        teste.innerHTML = ""
+        qtdComands.innerHTML = "";
     }
     
     // Botão de fechamento do modal

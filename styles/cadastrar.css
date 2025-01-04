@@ -1,16 +1,4 @@
-:root{
-    --color-principal: #1A202C;
-    --color-secundaria: #1F2937;
-    --color-terciaria: #29323f;
-    --color-quaternaria: #4b5e83;
-    --color-adicionar: #7FC56B;
-    --color-adicionar-hover: #53a53d;
-    --color-alterar: #3B82F6;
-    --color-alterar-hover: #1755db; 
-    --color-deletar: #d62d2d;
-    --color-deletar-hover: #9e0707;
-    --color-font: #fff;
-}
+@import url('style.css');
 
 /*TABELA COM RESULTADOS*/
     .results-table th.coluna-detalhe,
