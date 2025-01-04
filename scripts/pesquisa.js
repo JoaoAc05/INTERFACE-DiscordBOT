@@ -1,3 +1,5 @@
+import { showPopup } from './popup.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const searchButton = document.getElementById("search-btn");
     const searchInput = document.getElementById("search");
@@ -12,30 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertSrc = "../Images/Yellow Alert.png"
     const errorSrc = "../Images/Red Alert.png"
     const succesSrc = "../Images/Green Alert.png"
-    
-    // Função para exibir o popup
-    function showPopup(message, type = "") {
-        const popupMessage = document.getElementById("popup-message");
-        const popupText = document.getElementById("popup-text");
-        const popupImage = document.getElementById("img-popup");
-
-        popupMessage.className = `popup-message ${type}`; // Adiciona a classe (erro ou sucesso)
-        popupText.textContent = message;
-        popupMessage.style.display = "flex";
-        popupMessage.style.opacity = "1";
-        if(type == "alert") {
-            popupImage.src = "../Images/Yellow Alert.png" 
-        } else if(type == "error") {
-            popupImage.src = "../Images/Red Alert.png"
-        } else if(type == "success") {
-            popupImage.src = "../Images/Green Alert.png"
-        }
-
-        setTimeout(() => {
-            popupMessage.style.opacity = "0";
-            setTimeout(() => (popupMessage.style.display = "none"), 300);
-        }, 3000);
-    }
 
     //Realizar o ge na rota Get All
     async function fetchCommands() {
