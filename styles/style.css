@@ -1,0 +1,222 @@
+:root{
+    --color-principal: #1A202C;
+    --color-secundaria: #1F2937;
+    --color-terciaria: #29323f;
+    --color-quaternaria: #4b5e83;
+    --color-alert: #ffff00;
+    --color-error: #ff0000;
+    --color-sucess: #118845;
+    --color-popup: #2c3258;
+    --color-adicionar: #7FC56B;
+    --color-adicionar-hover: #53a53d;
+    --color-alterar: #3B82F6;
+    --color-alterar-hover: #1755db; 
+    --color-deletar: #d62d2d;
+    --color-deletar-hover: #9e0707;
+    --color-font: #fff;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--color-principal);
+    color: var(--color-font);
+    font-family: Arial, sans-serif;
+}
+
+header {
+    margin-top: 10px;
+    padding: 20px;
+
+    text-align: center;
+}
+
+header div {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 90px;
+}
+
+header img {
+    width: 180px;
+    height: auto;
+}
+
+
+header a img{
+    width: 40px;
+}
+
+
+/* BOTÕES */
+    /*BOTÕES CABEÇALHO E ACTIONS*/
+
+        .action-buttons {
+            margin: 20px 0;
+
+            text-align: center;
+        }
+
+        .action-buttons button {
+            width: 100px;
+            height: 50px;
+            margin: 0 10px;
+            padding: 5px 20px;
+
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: var(--color-font);
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        button img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .cadastrar {
+            cursor: pointer;
+            background-color: var(--color-adicionar);
+            color: var(--color-font);
+            font-weight: bold;
+        }
+        .cadastrar:hover {
+            background-color: var(--color-adicionar-hover);
+        }
+        .alterar {
+            cursor: pointer;
+            background-color: var(--color-alterar);
+            color: var(--color-font);
+            font-weight: bold;
+        }
+        .alterar:hover {
+            background-color: var(--color-alterar-hover);
+        }
+        .deletar {
+            cursor: pointer;
+            background-color: var(--color-deletar);
+            color: var(--color-font);
+            font-weight: bold;
+        }
+        .deletar:hover {
+            background-color: var(--color-deletar-hover);
+        }
+
+    /* BOTÕES PESQUISA E VOLTAR*/
+        .default-btn {
+            width: 150px;
+            height: 50px;
+            display: block;
+            margin: 20px auto;
+            padding: 5px 20px;
+            align-items: center;
+            align-content: center;
+
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: var(--color-font);
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+        .default-btn:hover {
+            background-color: var(--color-quaternaria);
+        }
+
+/* FOMRS */
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+
+        border-radius: 10px;
+        background-color: var(--color-secundaria);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+
+        font-weight: bold;
+    }
+
+    input, textarea, button {
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        box-sizing: border-box;
+
+        border: none;
+        border-radius: 5px;
+        background-color: var(--color-terciaria);
+        color: var(--color-font);
+        font-size: 14px;
+    }
+    textarea {
+        min-height: 80px;
+        resize: vertical;
+    }
+
+    .list-comands {
+        width: 100%;
+        margin: 5px 0;
+        padding: 10px;
+        box-sizing: border-box;
+
+        border: none;
+        border-radius: 5px;
+        background-color: var(--color-terciaria);
+        color: var(--color-font);
+        font-size: 14px;
+    }
+
+
+/* POP-UP */
+    .popup-message {
+        display: none;
+        position: fixed;
+        padding: 15px;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10; /* MAIOR Z INDEX = 10*/
+        transition: opacity 0.3s ease, top 0.3s ease;
+        align-items: center;
+        gap: 5px;
+
+        border-radius: 5px;
+        border: 1px solid var(--color-secundaria);
+        box-shadow: 5px 5px 50px #ffffff15;
+        color: var(--color-font);
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    .popup-message img {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+    }
+
+    .popup-message.error {
+        background: linear-gradient(to right, var(--color-error) 2%,var(--color-popup) 2%);
+    }
+    .popup-message.success {
+        background: linear-gradient(to right, var(--color-sucess) 2%,var(--color-popup) 2%);
+    }
+    .popup-message.alert{
+        /* background-color: var(--color-alert); */
+        background: linear-gradient(to right, var(--color-alert) 2%,var(--color-popup) 2%);
+    }

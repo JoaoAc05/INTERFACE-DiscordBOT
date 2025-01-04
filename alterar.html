@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Images/ruralhub-ell.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/pesquisa.css">
+    <title>Painel RuralHub BOT - Alterar</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="./Images/RuralHub1.png" alt="RURALHUB">
+            <h1>Alterar Comando</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="form-group form-row">
+            <label for="search-input">Pesquisa</label>
+            <input type="text" id="search-input" name="search-input" placeholder="Obrigatório" required>
+            <button id="search-btn" class="pesquisa-eventos" type="button"><img src="./Images/Pesquisa - white.png" alt="pesquisar"></button>
+        </div>
+        <form id="commandForm">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="number" id="id" name="id" placeholder="Aguardando Pesquisa..." disabled>
+            </div>
+
+            <!-- Campos de edição -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Aguardando Pesquisa..." disabled>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <label for="execute">Execute</label>
+                <textarea id="execute" name="execute" maxlength="2000" placeholder="Max 2000 caracteres"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="execute2">Execute2</label>
+                <textarea id="execute2" name="execute2" maxlength="2000" placeholder="Max 2000 caracteres"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="execute3">Execute3</label>
+                <textarea id="execute3" name="execute3" maxlength="2000" placeholder="Max 2000 caracteres"></textarea>
+            </div>
+            <button type="submit" id="btn-submit" class="alterar">Confirmar Alteração</button>
+
+        </form>
+        <div id="popup-message" class="popup-message">
+            <img src="" alt="img-popup" id="img-popup">
+            <p id="popup-text"></p>
+        </div>
+
+        <!-- Backdrop -->
+        <div class="modal-backdrop"></div>
+        
+        <!-- Modal -->
+        <div id="command-list-modal" class="modal">
+            <div class="close-container">
+                <button class="close-btn" type="button">x</button>
+            </div>
+            <div class="form-group">
+                <p id="teste"></p>
+                <label for="search-results">Resultados da Pesquisa</label>
+                <select id="search-results" name="search-results">
+                    <option value="" class="list-comands">Selecione um comando</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <a href="index.html"><button type="button" id="btn-back" class="default-btn">Voltar</button></a>
+
+    <script src="scripts/alterar.js"></script>
+</body>
+</html>
