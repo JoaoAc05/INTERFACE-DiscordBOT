@@ -17,8 +17,6 @@ btnSync.addEventListener("click", () => {
         }, 60000);
 
 
-    //https://painel-comandos.vercel.app/       URL VERCEL
-    //http://localhost:3000/                    LOCAL
     fetch("https://painel-comandos.vercel.app/admin/update", {
         method: "PUT",
     })

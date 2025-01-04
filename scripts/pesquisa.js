@@ -15,12 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorSrc = "../Images/Red Alert.png"
     const succesSrc = "../Images/Green Alert.png"
 
-    //Realizar o ge na rota Get All
+    // Realizar o get na rota All ou Name
     async function fetchCommands() {
         const query = searchInput.value.trim(); // Obtém o valor do campo, removendo espaços extras
 
-        //https://painel-comandos.vercel.app/       URL VERCEL
-        //http://localhost:3000/                    LOCAL
         let url = query 
             ? `https://painel-comandos.vercel.app/comandos/getName/?name=${encodeURIComponent(query)}` // Pesquisa por nome
             : `https://painel-comandos.vercel.app/comandos?page=${currentPage}&limit=${itemsPerPage}`; // Pesquisa geral
@@ -79,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    //Exibir os comandos na tela
+    // Exibir os comandos na tela
     function displayCommands(response) {
         resultsContainer.innerHTML = ""; // Limpa os resultados anteriores
         
@@ -142,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    //Botões para alterar a paginação
+    // Botões para alterar a paginação
     function displayPaginationButtons() {
         const paginationContainer = document.getElementById("pagination-container");
         paginationContainer.innerHTML = ""; // Limpa os botões anteriores
@@ -170,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
            
     }
 
-    //Abrir modal ao clicar nos detalhes do comando
+    // Abrir modal ao clicar nos detalhes do comando
     function showDetails(command) {
         const detailsContainer = document.getElementById("command-details");
     

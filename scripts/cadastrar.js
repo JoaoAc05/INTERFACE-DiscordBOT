@@ -33,8 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
             execute3: execute3
         };
 
-        //https://painel-comandos.vercel.app/       URL VERCEL
-        //http://localhost:3000/                    LOCAL
         fetch("https://painel-comandos.vercel.app/comandos", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -55,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
             if(error == "TypeError: Failed to fetch"){
                 showPopup(`Verifique se o servidor da API está rodando.`, "alert")
-                console.log("Aparentemente a API está fora, chama o João ou o Luan...")
+                console.log("Aparentemente a API está fora, chama o João.")
                 return;
             }
             showPopup("Erro interno: " + error.message, "error");
