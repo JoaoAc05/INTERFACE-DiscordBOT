@@ -24,7 +24,9 @@ document.getElementById('login-form').addEventListener('submit', async function(
         })
         .then(data => {
             showPopup("Bem vindo!", "success");
-            window.location.href = '/home.html';
+            setTimeout(() => {
+                window.location.href = '/home.html';
+            }, 3000);
         })
         .catch(error => {
             if(error == "TypeError: Failed to fetch"){
