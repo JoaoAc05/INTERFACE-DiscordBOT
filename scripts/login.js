@@ -35,8 +35,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
                 return;
             }
             if(error.message == 401 || error.message == "401") {
-                showPopup(`Usuario ou senha inválidos: ${busca}`, "error")
-                console.log("Usuario/Senha errado")
+                showPopup(`Usuario ou senha inválidos.`, "error")
             } else {
                 showPopup("Erro interno: " + error.message, "error");
                 console.log(`Erro interno: ${error.message}`);
