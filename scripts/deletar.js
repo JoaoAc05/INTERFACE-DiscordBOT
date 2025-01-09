@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     function fetchCommands(){
-        const busca = document.getElementById("search-input").value.trim();
+        const busca = searchInput.value.trim();
 
         if (!busca) {
             showPopup("Informe o nome para realizar a pesquisa.", "alert");

@@ -223,6 +223,5 @@ header a img{
         background: linear-gradient(to right, var(--color-sucess) 2%,var(--color-popup) 2%);
     }
     .popup-message.alert{
-        /* background-color: var(--color-alert); */
         background: linear-gradient(to right, var(--color-alert) 2%,var(--color-popup) 2%);
     }

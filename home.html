@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Images/ruralhub-ell.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/cadastrar.css">
+    <title>Painel RuralHub BOT</title>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="./Images/RuralHub1.png" alt="RURALHUB">
+            <h1>Painel RuralHub BOT</h1>
+            <a href="admin.html"><img src="./Images/Config - white.png" alt="Configurações"></a>
+        </div>
+    </header>
+    
+    <div class="action-buttons">
+        <a href="cadastrar.html"><button id="btn-cadastrar" class="cadastrar"><img src="./Images/Plus - white.png" alt="cadastrar"></button></a>
+        <a href="alterar.html"><button id="btn-alterar" class="alterar"><img src="./Images/Edit - white.png" alt="alterar"></button></a>
+        <a href="deletar.html"><button id="btn-deletar" class="deletar"><img src="./Images/Minus - white.png" alt="deletar"></button></a>
+    </div>
+
+    <div class="container">
+        <button id="search-btn" class="default-btn"><img src="./Images/Pesquisa - white.png" alt="pesquisar"></button>
+        <input type="text" id="search" placeholder="Pesquisar comandos">
+        <div id="results-container"></div>
+    </div>
+
+    <div id="results-container">
+        <!-- Armazenar os comandos existentes -->
+    </div>
+
+    <div id="pagination-container" class="pagination-container">
+        <!-- Botões de paginação -->
+    </div>
+
+    <!-- Backdrop -->
+    <div class="modal-backdrop"></div>
+
+    <!-- Modal -->
+    <div id="details-modal" class="modal">
+        <div class="close-container">
+            <button class="close-btn">x</button>
+        </div>
+        <div id="command-details"></div>
+    </div>
+    
+    <!-- Popup -->
+    <div id="popup-message" class="popup-message">
+        <img src="" alt="img-popup" id="img-popup">
+        <p id="popup-text"></p>
+    </div>
+    
+    <script type="module" src="scripts/pesquisa.js"></script>
+</body>
+</html>
