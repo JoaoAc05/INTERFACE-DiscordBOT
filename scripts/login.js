@@ -26,7 +26,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
             showPopup("Bem vindo!", "success");
             setTimeout(() => {
                 window.location.href = '/home.html';
-            }, 3000);
+            }, 2300);
         })
         .catch(error => {
             if(error == "TypeError: Failed to fetch"){
