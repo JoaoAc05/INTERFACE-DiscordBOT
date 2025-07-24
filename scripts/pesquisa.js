@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Realizar o get na rota All ou Name
     async function fetchCommands() {
         const query = searchInput.value.trim(); // Obtém o valor do campo, removendo espaços extras
+        const loader = document.getElementById('loader');
+        loader.style.display = 'block';
 
         let url = query 
             ? `https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(query)}` // Pesquisa por nome
@@ -58,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             
+        } finally {
+        loader.style.display = 'none'; // Esconde o loader mesmo em caso de erro
         }
     }
     
