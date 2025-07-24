@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             showPopup("Alteração realizada com sucesso!", "success");
             commandForm.reset(); // Limpa os campos do formulário
+            window.location.href = "home.html";
         })
         .catch(error => {
             showPopup("Erro interno: " + error.message, "error");
