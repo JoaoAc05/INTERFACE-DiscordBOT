@@ -56,6 +56,10 @@ header a img{
     width: 40px;
 }
 
+.disabled-input {
+    cursor: not-allowed;
+}
+
 
 /* BOTÕES */
     /*BOTÕES CABEÇALHO E ACTIONS*/
