@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const idInput = document.getElementById("id");
     const nameInput = document.getElementById("name");
+    let nomeSelecionado;
     const descriptionInput = document.getElementById("description")
     const executeInput = document.getElementById("execute");
     const execute2Input = document.getElementById("execute2");
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
-        //     URL VERCEL (ROTA GetName)                +                  NOME PREENCHIDO NO INPUT
+        //     URL RENDER (ROTA GetName)                +                  NOME PREENCHIDO NO INPUT
         fetch(`https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(busca)}`)
             .then(response => {
                 if (!response.ok) {
@@ -100,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         commandForm.style.display = "block"
         const selectedId = event.target.value;
         const selectedName = event.target.options[event.target.selectedIndex].textContent;
+        nomeSelecionado = event.target.options[event.target.selectedIndex].textContent;
         const selectedDescription = event.target.options[event.target.selectedIndex].descriptionContent;
         const selectedExecute = event.target.options[event.target.selectedIndex].executeContent;
         const selectedExecute2 = event.target.options[event.target.selectedIndex].execute2Content;
@@ -121,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             closeModal();
         }
     });
-teste
+
     // Funções para abrir e fechar o modal
     function openModal() {
         commandListModal.classList.add("active");
@@ -140,6 +142,7 @@ teste
     modalBackdrop.addEventListener("click", closeModal);
 
     commandForm.addEventListener("submit", (event) => {
+        console.log('Você está realizando uma alteração submit')
         event.preventDefault();
 
         if (!idInput.value) {
@@ -154,7 +157,7 @@ teste
 
         const comando = nameInput.value
 
-        const confirmAlter = confirm(`Você tem certeza que deseja alterar o comando ${comando}?`);
+        const confirmAlter = confirm(`Você tem certeza que deseja alterar o comando ${nomeSelecionado}?`);
         if (!confirmAlter) {
             showPopup("Alteração cancelada pelo usuário.", "alert");
             return;
@@ -170,6 +173,7 @@ teste
             execute3: execute3Input.value
         };
 
+        console.log("Iniciando PUT")
         fetch(`https://discordbot-vukj.onrender.com/comandos/${idInput.value}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
