@@ -17,7 +17,7 @@ btnSync.addEventListener("click", () => {
         }, 60000);
 
 
-    fetch("https://painel-comandos.vercel.app/admin/update", {
+    fetch("https://discordbot-vukj.onrender.com/admin/update", {
         method: "PUT",
     })
     .then(response => {

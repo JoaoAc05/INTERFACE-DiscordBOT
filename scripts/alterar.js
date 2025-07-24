@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         //     URL VERCEL (ROTA GetName)                +                  NOME PREENCHIDO NO INPUT
-        fetch(`https://painel-comandos.vercel.app/comandos/getName/?name=${encodeURIComponent(busca)}`)
+        fetch(`https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(busca)}`)
             .then(response => {
                 if (!response.ok) {
                     if(response.status == 404) {
@@ -170,7 +170,7 @@ teste
             execute3: execute3Input.value
         };
 
-        fetch(`https://painel-comandos.vercel.app/comandos/${idInput.value}`, {
+        fetch(`https://discordbot-vukj.onrender.com/comandos/${idInput.value}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(commandData),

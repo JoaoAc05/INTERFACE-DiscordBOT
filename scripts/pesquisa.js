@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const query = searchInput.value.trim(); // Obtém o valor do campo, removendo espaços extras
 
         let url = query 
-            ? `https://painel-comandos.vercel.app/comandos/getName/?name=${encodeURIComponent(query)}` // Pesquisa por nome
-            : `https://painel-comandos.vercel.app/comandos?page=${currentPage}&limit=${itemsPerPage}`; // Pesquisa geral
+            ? `https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(query)}` // Pesquisa por nome
+            : `https://discordbot-vukj.onrender.com/comandos?page=${currentPage}&limit=${itemsPerPage}`; // Pesquisa geral
 
 
         try {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             if(error == "TypeError: Failed to fetch"){
                 showPopup(`Verifique se o servidor da API está rodando.`, "alert")
-                console.log("Aparentemente a API está fora, chama o João ou o Luan...")
+                console.log("Aparentemente a API está fora, chama o João...")
                 return;
             } else {
                 const response = await fetch(url);

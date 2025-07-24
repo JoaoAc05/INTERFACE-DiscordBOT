@@ -1,0 +1,2 @@
+RENDER: discordbot-vukj.onrender.com/
+VERCEL: painel-comandos.vercel.app/

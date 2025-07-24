@@ -6,7 +6,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        fetch("https://painel-comandos.vercel.app/login", {
+        fetch("https://discordbot-vukj.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

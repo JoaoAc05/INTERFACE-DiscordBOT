@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }   
 
             // URL VERCEL                         +                     NOME PREENCHIDO NO INPUT
-        fetch(`https://painel-comandos.vercel.app/comandos/getName/?name=${encodeURIComponent(busca)}`)
+        fetch(`https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(busca)}`)
             .then(response => {
                 if (!response.ok) {
                     if(response.status == 404) {
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        fetch(`https://painel-comandos.vercel.app/comandos/${id}`, { 
+        fetch(`https://discordbot-vukj.onrender.com/comandos/${id}`, { 
             method: "DELETE"
         })
         .then(response => {

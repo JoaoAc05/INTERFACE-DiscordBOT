@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             execute3: execute3
         };
 
-        fetch("https://painel-comandos.vercel.app/comandos", {
+        fetch("https://discordbot-vukj.onrender.com/comandos", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(commandData),
