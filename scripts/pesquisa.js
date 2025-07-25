@@ -170,26 +170,54 @@ document.addEventListener("DOMContentLoaded", () => {
            
     }
 
+    function formatDiscordMarkdown(text) {
+    if (!text) return "";
+
+    // Bloco de código (``` linguagem\n código ```)
+    text = text.replace(/```(\w+)?\s*([\s\S]*?)```/g, (match, lang, code) => {
+        const languageClass = lang ? ` class="language-${lang}"` : "";
+        return `<pre><code${languageClass}>${code.trim()}</code></pre>`;
+    });
+
+    // Negrito
+    text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+    // Sublinhado
+    text = text.replace(/__(.*?)__/g, "<u>$1</u>");
+
+    // Itálico com * ou _
+    text = text.replace(/\*(.*?)\*/g, "<em>$1</em>");
+    text = text.replace(/_(.*?)_/g, "<em>$1</em>");
+
+    // Quebra de linha
+    text = text.replace(/\n/g, "<br>");
+
+    return text;
+    }
+
     // Abrir modal ao clicar nos detalhes do comando
     function showDetails(command) {
         const detailsContainer = document.getElementById("command-details");
     
-        let executeDetails = command.execute;
+        let executeDetails = formatDiscordMarkdown(command.execute);
         
         if (command.execute2) {
-            executeDetails += `<br><br><strong>Executar 2:</strong> ${command.execute2}`;
+            executeDetails += `<br><hr><br><strong>Executar 2:</strong> ${formatDiscordMarkdown(command.execute2)}`;
         }
         
         if (command.execute3) {
-            executeDetails += `<br><br><strong>Executar 3:</strong> ${command.execute3}`;
+            executeDetails += `<br><hr><br><strong>Executar 3:</strong> ${formatDiscordMarkdown(command.execute3)}`;
         }
     
         // Exibe os detalhes no container
         detailsContainer.innerHTML = `
             <h2>Detalhes do Comando</h2>
+            <div class="detalhes-comando">
             <p><strong>ID:</strong> ${command.id}</p>
             <p><strong>Nome:</strong> ${command.data.name}</p>
             <p><strong>Descrição:</strong> ${command.data.description}</p>
+            </div>
+            <hr>
             <p><strong>Executar:</strong> ${executeDetails}</p>
         `;
         
