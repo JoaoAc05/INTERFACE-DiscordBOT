@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    function fetchCommands(){
+    async function fetchCommands(){
         const busca = document.getElementById("search-input").value.trim();
     
         if (!busca) {

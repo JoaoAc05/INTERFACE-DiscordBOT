@@ -6,28 +6,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultsContainer = document.getElementById("results-container");
     const detailsModal = document.getElementById("details-modal");
     const modalBackdrop = document.querySelector(".modal-backdrop");
+    const loader = document.getElementById('loader');
 
     let currentPage = 1; // Página atual
     const itemsPerPage = 10; // Número de comandos por página
     let totalPages = 1; // Total de páginas
-    
-    const alertSrc = "../Images/Yellow Alert.png"
-    const errorSrc = "../Images/Red Alert.png"
-    const succesSrc = "../Images/Green Alert.png"
 
     // Realizar o get na rota All ou Name
     async function fetchCommands() {
         const query = searchInput.value.trim(); // Obtém o valor do campo, removendo espaços extras
-        const loader = document.getElementById('loader');
         loader.style.display = 'block';
+        modalBackdrop.classList.add("active");
 
         let url = query 
-            ? `https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(query)}` // Pesquisa por nome
-            : `https://discordbot-vukj.onrender.com/comandos?page=${currentPage}&limit=${itemsPerPage}`; // Pesquisa geral
+        ? `https://discordbot-vukj.onrender.com/comandos/getName/?name=${encodeURIComponent(query)}` // Pesquisa por nome
+        : `https://discordbot-vukj.onrender.com/comandos?page=${currentPage}&limit=${itemsPerPage}`; // Pesquisa geral
 
+        let response;
 
         try {
-            const response = await fetch(url);
+            response = await fetch(url);
             if (!response.ok) {
                 if(response.status == 404) {
                     showPopup(`Não foi encontrado resultados para: ${query}`, "alert")
@@ -44,9 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 showPopup(`Verifique se o servidor da API está rodando.`, "alert")
                 console.log("Aparentemente a API está fora, chama o João...")
                 return;
-            } else {
-                const response = await fetch(url);
             }
+
             if(query){
                 if(response.status == 404) {
                     showPopup(`Não foi encontrado resultados para: ${query}`, "alert")
@@ -61,7 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             
         } finally {
-        loader.style.display = 'none'; // Esconde o loader mesmo em caso de erro
+        loader.style.display = 'none';
+        modalBackdrop.classList.remove("active");
         }
     }
     
